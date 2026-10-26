@@ -974,6 +974,249 @@ em {
   font-size: 0.9em;
 }
 
+/* Contact page */
+
+.split-head-inner {
+  position: sticky;
+  top: 112px;
+}
+
+.split-head-inner h2 {
+  position: static;
+  margin-bottom: 20px;
+}
+
+.contact-details p {
+  font-size: 0.98rem;
+}
+
+.contact-email {
+  color: var(--navy);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.form {
+  display: grid;
+  gap: 22px;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label,
+.credit legend {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.optional {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+.hint {
+  margin: 0;
+  color: var(--ink-3);
+  font-size: 0.86rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.field textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  background: var(--card);
+  box-shadow: 0 0 0 4px var(--coral-soft);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.98rem;
+  cursor: pointer;
+}
+
+.check input,
+.radio input {
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+  flex: none;
+  accent-color: var(--navy);
+}
+
+.credit {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.credit legend {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.radio input {
+  margin: 0;
+}
+
+.radio:has(input:checked) {
+  border-color: var(--navy);
+  color: var(--ink);
+}
+
+.form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.form-footer .hint {
+  max-width: 36ch;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.form-status {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+.form-status.is-pending {
+  background: var(--paper-2);
+  color: var(--ink-2);
+}
+
+.form-status.is-success {
+  background: #e2eee7;
+  color: #1f5a41;
+}
+
+.form-status.is-error {
+  background: var(--coral-soft);
+  color: var(--coral-ink);
+}
+
+.honeypot {
+  display: none !important;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.testimonial {
+  margin: 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+.testimonial blockquote {
+  margin: 0 0 20px;
+}
+
+.testimonial blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+
+.testimonial figcaption {
+  color: var(--ink-3);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.empty-state {
+  padding: 32px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.footer-contact {
+  margin: 20px 0 0;
+}
+
+.footer-contact a {
+  color: #fff;
+}
+
 /* Previous / next chapter */
 
 .pager {
@@ -1149,7 +1392,8 @@ em {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .split-head h2 {
+  .split-head h2,
+  .split-head-inner {
     position: static;
   }
 }
@@ -1187,6 +1431,8 @@ em {
   .features,
   .cards,
   .pager,
+  .form-row,
+  .testimonials,
   .footer-grid {
     grid-template-columns: 1fr;
   }

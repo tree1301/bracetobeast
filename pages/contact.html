@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Feedback | Brace to Beast</title>
+  <meta name="description" content="Get in touch with Brace to Beast, share feedback on the guide, and read what other readers have said.">
+  <meta name="theme-color" content="#faf7f2">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../index.html" class="brand" aria-label="Brace to Beast home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#14305A"/><path d="M8 22c3.5 0 5-4 8-4s4.5-6 8-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="10" r="2.75" fill="#E2582F"/></svg>
+      <span>Brace to Beast</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">
+      <span class="menu-toggle-bars" aria-hidden="true"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="story.html">My story</a></li>
+        <li><a href="surgery.html">Surgery</a></li>
+        <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="therapy.html">Therapy</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="fun.html">Fun &amp; memes</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <header class="page-hero">
+    <div class="container">
+      <p class="crumbs"><a href="../index.html">Guide</a> / Contact</p>
+      <p class="eyebrow">Get in touch</p>
+      <h1>Contact &amp; feedback</h1>
+      <p class="lede">
+        Have a question, a recovery story of your own, or feedback on the guide? I read every message.
+      </p>
+    </div>
+  </header>
+
+  <section class="section section--tight" id="send">
+    <div class="container split">
+      <div class="split-head">
+        <div class="split-head-inner">
+          <h2>Send me a message</h2>
+          <div class="contact-details">
+            <p>Prefer email? Write to<br><a class="contact-email" href="mailto:bracetobeast@gmail.com">bracetobeast@gmail.com</a></p>
+            <p>I try to reply within a week. I can’t give medical advice. For anything urgent, contact your doctor or care team.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms access key: get one free at web3forms.com using bracetobeast@gmail.com, then paste it here. -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New message from bracetobeast.com">
+        <input type="hidden" name="from_name" value="Brace to Beast website">
+        <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">First name or initials <span class="optional">(optional)</span></label>
+            <input id="name" name="name" type="text" maxlength="60" autocomplete="given-name">
+          </div>
+          <div class="field">
+            <label for="role">I’m a…</label>
+            <select id="role" name="i_am">
+              <option>Patient or recovering athlete</option>
+              <option>Parent or family member</option>
+              <option>Coach or teacher</option>
+              <option>Healthcare worker</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Your email <span class="optional">(optional)</span></label>
+          <input id="email" name="email" type="email" maxlength="120" autocomplete="email" aria-describedby="emailHint">
+          <p class="hint" id="emailHint">Only if you’d like a reply. It’s never published.</p>
+        </div>
+
+        <div class="field">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" required maxlength="2000"></textarea>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" name="publish_permission" value="Yes">
+          <span>You can share my message on this site. I’ll review it first, and I won’t publish anything without this box ticked.</span>
+        </label>
+
+        <fieldset class="credit">
+          <legend>If I share it, credit me as</legend>
+          <div class="radio-group">
+            <label class="radio"><input type="radio" name="credit_as" value="Anonymous" checked> Anonymous</label>
+            <label class="radio"><input type="radio" name="credit_as" value="First name"> First name</label>
+            <label class="radio"><input type="radio" name="credit_as" value="Initials"> Initials</label>
+          </div>
+        </fieldset>
+
+        <div class="form-footer">
+          <p class="hint">If you’re under 13, please ask a parent or guardian before sending.</p>
+          <button class="btn btn-primary" type="submit">Send message <span class="arrow" aria-hidden="true">→</span></button>
+        </div>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="feedback">
+    <div class="container split">
+      <div class="split-head"><h2>What readers say</h2></div>
+      <div>
+        <!--
+          To publish approved feedback, add a block like this inside .testimonials
+          (and delete the .empty-state block below once there is at least one):
+
+          <figure class="testimonial">
+            <blockquote><p>Message text goes here.</p></blockquote>
+            <figcaption>Anonymous · Patient</figcaption>
+          </figure>
+        -->
+        <div class="testimonials"></div>
+        <div class="empty-state">
+          <p>No reader messages yet. <a href="#send">Be the first to share yours.</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container split">
+      <div class="split-head"><h2>How I handle messages</h2></div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card-num">01</span>
+          <h3>Every message is read</h3>
+          <p>Messages come straight to my inbox. Nothing appears on this site until I’ve read and approved it.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">02</span>
+          <h3>Shared only with permission</h3>
+          <p>I only share messages where you ticked the box, credited the way you chose. I never publish emails, last names, or schools.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">03</span>
+          <h3>Kind and on-topic</h3>
+          <p>I share messages that are kind and helpful. I may shorten them or fix typos, but I won’t change what you meant. I don’t publish medical advice.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">04</span>
+          <h3>Your privacy</h3>
+          <p>The form is delivered to my email by Web3Forms, and only I read it. Want something removed? Email me and I’ll take it down.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="../index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#1E4580"/><path d="M8 22c3.5 0 5-4 8-4s4.5-6 8-8" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="10" r="2.75" fill="#E2582F"/></svg>
+        <span>Brace to Beast</span>
+      </a>
+      <p class="footer-tagline">Your story can help someone else keep going.</p>
+      <p class="footer-contact">Questions or feedback? <a href="mailto:bracetobeast@gmail.com">bracetobeast@gmail.com</a></p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <h2>The guide</h2>
+      <ul>
+        <li><a href="story.html">My story</a></li>
+        <li><a href="surgery.html">Surgery</a></li>
+        <li><a href="recovery.html">Recovery</a></li>
+        <li><a href="therapy.html">Therapy</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="fun.html">Fun &amp; memes</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <p class="disclaimer">Brace to Beast shares one student’s personal experience and isn’t medical advice. Always follow the plan from your own surgeon and physical therapist.</p>
+    <p>© <span id="year">2026</span> Brace to Beast</p>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

@@ -44,3 +44,55 @@ const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
+
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  const formStatus = document.getElementById("formStatus");
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const fallback = "Please try again, or email bracetobeast@gmail.com.";
+
+  const showStatus = (message, type) => {
+    formStatus.textContent = message;
+    formStatus.className = `form-status is-${type}`;
+    formStatus.hidden = false;
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+
+    if (data.get("botcheck")) {
+      return;
+    }
+
+    if (String(data.get("access_key")).startsWith("YOUR_")) {
+      showStatus("The form isn’t connected yet. For now, please email bracetobeast@gmail.com.", "error");
+      return;
+    }
+
+    const shareable = data.get("publish_permission") === "Yes";
+    data.set("publish_permission", shareable ? "Yes" : "No");
+    data.set("subject", shareable ? "New feedback (OK to publish)" : "New private message");
+
+    submitButton.disabled = true;
+    showStatus("Sending…", "pending");
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Request failed");
+      }
+      contactForm.reset();
+      showStatus("Thank you! Your message was sent. I read every one.", "success");
+    } catch (error) {
+      showStatus(`Sorry, something went wrong. ${fallback}`, "error");
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
